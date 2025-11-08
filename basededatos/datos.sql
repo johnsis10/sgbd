@@ -5,3 +5,4 @@ VALUES
 ('María Torres', 'maria.torres@example.com', 'maria789', CURRENT_TIMESTAMP, 1),
 ('Carlos Ruiz', 'carlos.ruiz@example.com', 'carlos321', CURRENT_TIMESTAMP, 3),
 ('Sofía Vargas', 'sofia.vargas@example.com', 'sofia654', CURRENT_TIMESTAMP, 1);
+
