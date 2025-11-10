@@ -5,10 +5,11 @@ import { RolModule } from './rol/rol.module';
 import { RolModule } from './rol/rol.module';
 
 @Module({
-  imports: [UsuarioModule, RolModule, AutorModule],
+  imports: [UsuarioModule, RolModule, AutorModule, LibroModule],
 =======
 import { AutentificacionModule } from './autentificacion/autentificacion.module';
 import { AutorModule } from './autor/autor.module';
+import { LibroModule } from './libro/libro.module';
 
 @Module({
   imports: [UsuarioModule, AutentificacionModule],
