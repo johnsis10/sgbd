@@ -1,19 +1,5 @@
-<<<<<<< HEAD
---datos
-INSERT INTO rol (nombre_rol)
-VALUES
-('lector'),        -- id_rol = 1
-('bibliotecario'), -- id_rol = 2
-('admin');         -- id_rol = 3
 
-INSERT INTO usuario (nombre, correo, contrasena, fecha_registro, id_rol)
-VALUES
-('Ana Gómez', 'ana.gomez@example.com', 'ana123', CURRENT_TIMESTAMP, 1),
-('Luis Pérez', 'luis.perez@example.com', 'luis456', CURRENT_TIMESTAMP, 2),
-('María Torres', 'maria.torres@example.com', 'maria789', CURRENT_TIMESTAMP, 1),
-('Carlos Ruiz', 'carlos.ruiz@example.com', 'carlos321', CURRENT_TIMESTAMP, 3),
-('Sofía Vargas', 'sofia.vargas@example.com', 'sofia654', CURRENT_TIMESTAMP, 1);
-=======
+
 INSERT INTO rol (id_rol, nombre_rol)
 VALUES 
 (1, 'Administrador'),
@@ -48,5 +34,3 @@ INSERT INTO libro (titulo, id_autor, id_categoria, año_publicacion, isbn, resum
 ('La ciudad y los perros', 3, 1, 1963, '9788432208136', 'Crítica a la educación militar en Lima.', 'ciudad_perros.pdf', TRUE),
 ('Como agua para chocolate', 4, 3, 1989, '9780385474016', 'Romance y cocina en tiempos de revolución.', 'agua_chocolate.pdf', TRUE),
 ('Ficciones', 5, 5, 1944, '9788420633127', 'Colección de cuentos filosóficos y fantásticos.', 'ficciones.pdf', TRUE);
-
->>>>>>> 3f45ec38ad19e777d5e61808c7c5b31fe893407f
