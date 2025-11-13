@@ -16,7 +16,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/jwt/JwtAuthGuard';
+import { JwtAuthGuard } from '../jwt/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @ApiTags('Punto de Acceso usuario')
