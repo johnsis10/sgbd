@@ -8,7 +8,7 @@ import { AutentificacionModule } from './autentificacion/autentificacion.module'
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'postgres',
+      username: 'admin',
       password: '123qwe',
       database: 'sgbd',
       autoLoadEntities: true,
