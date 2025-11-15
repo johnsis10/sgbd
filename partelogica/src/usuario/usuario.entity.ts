@@ -5,9 +5,10 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Rol } from '../rol/rol.entity';
+import { Rol } from 'src/rol/rol.entity';
 
-@Entity('usuario')
+@Entity({ name: 'usuario', schema: 'public' })
+
 export class Usuario {
   @PrimaryGeneratedColumn()
   id_usuario: number;

@@ -11,12 +11,19 @@ export class AutentificacionService {
   ) {}
 
   async validarUsuario(eusuario: string, eclave: string) {
-    const usuario = await this.usuarioService.obtenerPorUsuario(eusuario);
-    if (usuario && await bcrypt.compare(eclave, usuario.contrasena)) {
-      const { contrasena, ...result } = usuario;
-      return result;
+    try {
+      const usuario = await this.usuarioService.obtenerPorUsuario(eusuario);
+      console.log('Usuario encontrado:', usuario);
+
+      if (usuario && await bcrypt.compare(eclave, usuario.contrasena)) {
+        const { contrasena, ...result } = usuario;
+        return result;
+      }
+      throw new UnauthorizedException('Credenciales inválidas');
+    } catch (error) {
+      console.error('Error en validarUsuario:', error);
+      throw error;
     }
-    throw new UnauthorizedException('Credenciales inválidas');
   }
 
   async acceso(usuario: any) {

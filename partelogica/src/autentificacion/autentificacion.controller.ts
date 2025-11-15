@@ -7,11 +7,9 @@ export class AutentificacionController {
   constructor(private readonly autentificacionService: AutentificacionService) {}
 
   @Post('acceso')
-  async acceso(@Body() datos: AccesoDto) {
-    const usuario = await this.autentificacionService.validarUsuario(
-      datos.correo,
-      datos.contrasena,
-    );
-    return this.autentificacionService.acceso(usuario);
-  }
+async login(@Body() dto: AccesoDto) {
+  const usuarioValido = await this.autentificacionService.validarUsuario(dto.correo, dto.contrasena);
+  return this.autentificacionService.acceso(usuarioValido);
+}
+
 }
