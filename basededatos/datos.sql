@@ -28,7 +28,7 @@ INSERT INTO categoria (nombre_categoria, descripcion) VALUES
 ('Fantasía', 'Mundos imaginarios con magia y criaturas'),
 ('Ensayo', 'Textos argumentativos sobre temas diversos');
 
-INSERT INTO libro (titulo, id_autor, id_categoria, año_publicacion, isbn, resumen, archivo_pdf, disponible) VALUES
+INSERT INTO libro (titulo, id_autor, id_categoria, anio_publicacion, isbn, resumen, archivo_pdf, disponible) VALUES
 ('Cien años de soledad', 1, 3, 1967, '9780307474728', 'Saga familiar en Macondo con elementos mágicos.', 'cien_anos.pdf', TRUE),
 ('La casa de los espíritus', 2, 3, 1982, '9780553383805', 'Historia de una familia chilena con tintes sobrenaturales.', 'casa_espiritus.pdf', TRUE),
 ('La ciudad y los perros', 3, 1, 1963, '9788432208136', 'Crítica a la educación militar en Lima.', 'ciudad_perros.pdf', TRUE),

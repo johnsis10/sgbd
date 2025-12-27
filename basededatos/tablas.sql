@@ -41,7 +41,7 @@ CREATE TABLE libro (
     titulo VARCHAR(200) NOT NULL,
     id_autor INTEGER REFERENCES autor(id_autor),
     id_categoria INTEGER REFERENCES categoria(id_categoria),
-    año_publicacion INTEGER,
+    anio_publicacion INTEGER,
     isbn VARCHAR(20) UNIQUE,
     resumen TEXT,
     archivo_pdf TEXT,

@@ -8,6 +8,7 @@ import {
 import { Autor } from 'src/autor/autor.entity';
 import { Categoria } from 'src/categoria/categoria.entity';
 
+
 @Entity('libro')
 export class Libro {
   @PrimaryGeneratedColumn({ name: 'id_libro' })
@@ -24,8 +25,8 @@ export class Libro {
   @JoinColumn({ name: 'id_categoria' })
   categoria: Categoria;
 
-  @Column({ name: 'año_publicacion', type: 'int', nullable: true })
-  añoPublicacion: number;
+  @Column({ name: 'anio_publicacion', type: 'int', nullable: true })
+  anioPublicacion: number;
 
   @Column({ length: 20, unique: true })
   isbn: string;
@@ -34,7 +35,7 @@ export class Libro {
   resumen: string;
 
   @Column({ type: 'text', nullable: true })
-  archivoPdf: string;
+  archivo_pdf: string;
 
   @Column({ default: true })
   disponible: boolean;

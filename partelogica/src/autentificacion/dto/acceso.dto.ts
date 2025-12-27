@@ -1,7 +1,9 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsString } from 'class-validator';
 
 export class AccesoDto {
+  @IsString()
+  usuario: string;
 
-  correo: string;
-  contrasena: string;
+  @IsString()
+  clave: string;
 }
