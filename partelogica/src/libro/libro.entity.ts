@@ -5,28 +5,27 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Autor } from 'src/autor/autor.entity';
-import { Categoria } from 'src/categoria/categoria.entity';
-
+import { Autor } from '../autor/autor.entity';
+import { Categoria } from '../categoria/categoria.entity';
 
 @Entity('libro')
 export class Libro {
   @PrimaryGeneratedColumn({ name: 'id_libro' })
-  id: number;
+  id_libro: number;
 
   @Column({ length: 200 })
   titulo: string;
 
-  @ManyToOne(() => Autor)
+  @ManyToOne(() => Autor, (autor) => autor.libros, { eager: true })
   @JoinColumn({ name: 'id_autor' })
   autor: Autor;
 
-  @ManyToOne(() => Categoria)
+  @ManyToOne(() => Categoria, (categoria) => categoria.libros, { eager: true })
   @JoinColumn({ name: 'id_categoria' })
   categoria: Categoria;
 
   @Column({ name: 'anio_publicacion', type: 'int', nullable: true })
-  anioPublicacion: number;
+  anio_publicacion: number;
 
   @Column({ length: 20, unique: true })
   isbn: string;

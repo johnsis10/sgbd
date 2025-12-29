@@ -10,30 +10,33 @@ export class AutorService {
     private readonly autorRepo: Repository<Autor>,
   ) {}
 
-  async obtenerTodos() {
+  async obtenerTodos(): Promise<Autor[]> {
     return this.autorRepo.find({ relations: ['libros'] });
   }
 
-  async obtenerPorId(id: number) {
-    const autor = await this.autorRepo.findOne({ where: { id }, relations: ['libros'] });
+  async obtenerPorId(id: number): Promise<Autor> {
+    const autor = await this.autorRepo.findOne({
+      where: { id_autor: id }, // 👈 corregido
+      relations: ['libros'],
+    });
     if (!autor) throw new NotFoundException(`Autor con ID ${id} no encontrado`);
     return autor;
   }
 
-  async crear(datos: Partial<Autor>) {
+  async crear(datos: Partial<Autor>): Promise<Autor> {
     const nuevo = this.autorRepo.create(datos);
     return this.autorRepo.save(nuevo);
   }
 
-  async modificar(id: number, datos: Partial<Autor>) {
-    const autor = await this.autorRepo.findOne({ where: { id } });
+  async modificar(id: number, datos: Partial<Autor>): Promise<Autor> {
+    const autor = await this.autorRepo.findOne({ where: { id_autor: id } }); 
     if (!autor) throw new NotFoundException(`Autor con ID ${id} no encontrado`);
     Object.assign(autor, datos);
     return this.autorRepo.save(autor);
   }
 
-  async borrar(id: number) {
-    const resultado = await this.autorRepo.delete(id);
+  async borrar(id: number): Promise<{ mensaje: string }> {
+    const resultado = await this.autorRepo.delete({ id_autor: id }); 
     if (resultado.affected === 0) throw new NotFoundException(`Autor con ID ${id} no encontrado`);
     return { mensaje: `Autor con ID ${id} borrado correctamente` };
   }

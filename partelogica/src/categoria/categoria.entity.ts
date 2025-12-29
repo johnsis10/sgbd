@@ -1,17 +1,22 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+} from 'typeorm';
 import { Libro } from '../libro/libro.entity';
 
 @Entity('categoria')
 export class Categoria {
   @PrimaryGeneratedColumn({ name: 'id_categoria' })
-  id: number;
+  id_categoria: number;
 
-  @Column({ name: 'nombre_categoria', length: 100, unique: true })
-  nombreCategoria: string;
+  @Column({ length: 100 })
+  nombre_categoria: string;
 
   @Column({ type: 'text', nullable: true })
   descripcion: string;
 
-  @OneToMany(() => Libro, libro => libro.categoria)
+  @OneToMany(() => Libro, (libro) => libro.categoria)
   libros: Libro[];
 }

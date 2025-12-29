@@ -1,20 +1,25 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+} from 'typeorm';
 import { Libro } from '../libro/libro.entity';
 
 @Entity('autor')
 export class Autor {
   @PrimaryGeneratedColumn({ name: 'id_autor' })
-  id: number;
+  id_autor: number;
 
-  @Column({ name: 'nombre_completo', length: 150 })
-  nombreCompleto: string;
+  @Column({ length: 150 })
+  nombre_completo: string;
 
-  @Column({ length: 50, nullable: true })
+  @Column({ length: 100, nullable: true })
   nacionalidad: string;
 
-  @Column({ name: 'fecha_nacimiento', type: 'date', nullable: true })
-  fechaNacimiento: Date;
+  @Column({ type: 'date', nullable: true })
+  fecha_nacimiento: Date;
 
-  @OneToMany(() => Libro, libro => libro.autor)
+  @OneToMany(() => Libro, (libro) => libro.autor)
   libros: Libro[];
 }

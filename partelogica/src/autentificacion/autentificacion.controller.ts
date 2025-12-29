@@ -4,9 +4,7 @@ import { AccesoDto } from './dto/acceso.dto';
 
 @Controller('api/v1/autentificacion')
 export class AutentificacionController {
-  constructor(
-    private readonly autentificacionService: AutentificacionService,
-  ) {}
+  constructor(private readonly autentificacionService: AutentificacionService) {}
 
   @Post('login')
   async login(@Body() datos: AccesoDto) {
@@ -17,3 +15,4 @@ export class AutentificacionController {
     return this.autentificacionService.acceso(usuario);
   }
 }
+

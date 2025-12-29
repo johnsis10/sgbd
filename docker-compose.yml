@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_sgbd
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123qwe
+      POSTGRES_DB: sgbd_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./basededatos:/docker-entrypoint-initdb.d
+
+  backend:
+    build: ./partelogica
+    container_name: nest_backend
+    restart: always
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: admin
+      DATABASE_PASSWORD: 123qwe
+      DATABASE_NAME: sgbd_db
+
+  frontend:
+    build: ./frontend
+    container_name: next_frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
